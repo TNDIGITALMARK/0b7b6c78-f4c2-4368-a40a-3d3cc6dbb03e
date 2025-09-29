@@ -1,86 +1,106 @@
 @import "tailwindcss";
 
+/* Exotic Cats Marketplace Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  /* Exotic Cats Marketplace Theme */
+  /* Deep Forest Green #1B4332 -> HSL(150, 52%, 19%) */
+  /* Warm Gold #FFB700 -> HSL(43, 100%, 50%) */
+  /* Cream #F8F5F0 -> HSL(30, 43%, 95%) */
 
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --background: 30 43% 95%; /* Cream background */
+  --foreground: 150 52% 15%; /* Dark forest green for text */
+
+  --card: 0 0% 100%; /* White cards */
+  --card-foreground: 150 52% 15%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 150 52% 15%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  --primary: 150 52% 19%; /* Deep forest green */
+  --primary-foreground: 30 43% 95%; /* Cream text on primary */
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 43 100% 50%; /* Warm gold */
+  --secondary-foreground: 150 52% 15%; /* Dark green text on gold */
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 150 20% 85%; /* Light green-grey */
+  --muted-foreground: 150 30% 35%; /* Medium green-grey */
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent: 43 100% 50%; /* Warm gold accent */
+  --accent-foreground: 150 52% 15%; /* Dark green text */
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --border: 150 20% 80%; /* Light green-grey borders */
+  --input: 150 20% 85%; /* Light input backgrounds */
+  --ring: 43 100% 50%; /* Gold focus rings */
 
   --radius: 0.5rem;
 
-  --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 240 5.9% 10%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 240 4.8% 95.9%;
-  --sidebar-accent-foreground: 240 5.9% 10%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Exotic Cats Custom Colors */
+  --forest-green: 150 52% 19%;
+  --forest-green-light: 150 52% 25%;
+  --forest-green-dark: 150 52% 12%;
+  --warm-gold: 43 100% 50%;
+  --warm-gold-light: 43 100% 60%;
+  --warm-gold-dark: 43 100% 40%;
+  --cream: 30 43% 95%;
+  --cream-dark: 30 43% 90%;
+
+  --sidebar-background: 150 52% 19%; /* Deep forest green sidebar */
+  --sidebar-foreground: 30 43% 95%; /* Cream text */
+  --sidebar-primary: 43 100% 50%; /* Gold highlights */
+  --sidebar-primary-foreground: 150 52% 15%;
+  --sidebar-accent: 150 52% 25%; /* Lighter forest green */
+  --sidebar-accent-foreground: 30 43% 95%;
+  --sidebar-border: 150 52% 25%;
+  --sidebar-ring: 43 100% 50%;
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
+  /* Dark theme for Exotic Cats Marketplace */
+  --background: 150 52% 12%; /* Very dark forest green */
+  --foreground: 30 43% 95%; /* Cream text */
 
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
+  --card: 150 52% 15%; /* Dark forest green cards */
+  --card-foreground: 30 43% 95%;
 
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 150 52% 15%;
+  --popover-foreground: 30 43% 95%;
 
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  --primary: 43 100% 50%; /* Warm gold primary */
+  --primary-foreground: 150 52% 15%; /* Dark green text */
 
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 150 52% 25%; /* Lighter forest green */
+  --secondary-foreground: 30 43% 95%;
 
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted: 150 30% 20%; /* Dark muted green */
+  --muted-foreground: 150 20% 70%; /* Light green-grey */
 
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
+  --accent: 43 100% 50%; /* Warm gold accent */
+  --accent-foreground: 150 52% 15%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 50%;
+  --destructive-foreground: 30 43% 95%;
 
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --sidebar-background: 240 5.9% 10%;
-  --sidebar-foreground: 240 4.8% 95.9%;
-  --sidebar-primary: 224.3 76.3% 48%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 3.7% 15.9%;
-  --sidebar-accent-foreground: 240 4.8% 95.9%;
-  --sidebar-border: 240 3.7% 15.9%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  --border: 150 30% 25%; /* Dark green borders */
+  --input: 150 30% 20%; /* Dark input backgrounds */
+  --ring: 43 100% 50%; /* Gold focus rings */
+
+  --sidebar-background: 150 52% 8%; /* Very dark forest green sidebar */
+  --sidebar-foreground: 30 43% 95%; /* Cream text */
+  --sidebar-primary: 43 100% 50%; /* Gold highlights */
+  --sidebar-primary-foreground: 150 52% 15%;
+  --sidebar-accent: 150 52% 18%; /* Slightly lighter forest green */
+  --sidebar-accent-foreground: 30 43% 95%;
+  --sidebar-border: 150 52% 18%;
+  --sidebar-ring: 43 100% 50%;
 }
 
 @theme {
@@ -160,4 +180,43 @@ All colors MUST be HSL.
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+}
+
+/* Typography for Exotic Cats Marketplace */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom Exotic Cats Styles */
+.exotic-gradient {
+  background: linear-gradient(135deg, hsl(var(--forest-green)) 0%, hsl(var(--forest-green-light)) 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, hsl(var(--warm-gold)) 0%, hsl(var(--warm-gold-light)) 100%);
+}
+
+.text-forest-green {
+  color: hsl(var(--forest-green));
+}
+
+.text-warm-gold {
+  color: hsl(var(--warm-gold));
+}
+
+.bg-forest-green {
+  background-color: hsl(var(--forest-green));
+}
+
+.bg-warm-gold {
+  background-color: hsl(var(--warm-gold));
+}
+
+.bg-cream {
+  background-color: hsl(var(--cream));
 }
