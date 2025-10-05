@@ -11,13 +11,13 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <header className="blue-gradient shadow-lg sticky top-0 z-50">
+    <header className="red-gradient shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-warm-gold rounded-full flex items-center justify-center">
-              <span className="text-royal-blue font-bold text-sm">EP</span>
+              <span className="text-vibrant-red font-bold text-sm">EP</span>
             </div>
             <span className="font-heading text-xl font-bold text-white">
               EXOTIC PAWS
@@ -96,7 +96,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-royal-blue-light border-t border-white/20">
+          <div className="md:hidden bg-vibrant-red-light border-t border-white/20">
             <div className="px-4 py-6 space-y-4">
               {/* Mobile Search */}
               <div className="flex items-center bg-white/10 rounded-full px-4 py-2">

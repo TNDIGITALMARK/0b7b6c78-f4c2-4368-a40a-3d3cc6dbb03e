@@ -58,6 +58,11 @@ All colors MUST be HSL.
   --royal-blue-light: 220 90% 45%;
   --royal-blue-dark: 220 90% 25%;
 
+  /* Red theme colors */
+  --vibrant-red: 0 85% 45%;
+  --vibrant-red-light: 0 85% 55%;
+  --vibrant-red-dark: 0 85% 35%;
+
   --sidebar-background: 150 52% 19%; /* Deep forest green sidebar */
   --sidebar-foreground: 30 43% 95%; /* Cream text */
   --sidebar-primary: 43 100% 50%; /* Gold highlights */
@@ -206,6 +211,10 @@ body {
   background: linear-gradient(135deg, hsl(var(--royal-blue)) 0%, hsl(var(--royal-blue-light)) 100%);
 }
 
+.red-gradient {
+  background: linear-gradient(135deg, hsl(var(--vibrant-red)) 0%, hsl(var(--vibrant-red-light)) 100%);
+}
+
 .gold-gradient {
   background: linear-gradient(135deg, hsl(var(--warm-gold)) 0%, hsl(var(--warm-gold-light)) 100%);
 }
@@ -218,6 +227,10 @@ body {
   color: hsl(var(--royal-blue));
 }
 
+.text-vibrant-red {
+  color: hsl(var(--vibrant-red));
+}
+
 .text-warm-gold {
   color: hsl(var(--warm-gold));
 }
@@ -228,6 +241,14 @@ body {
 
 .bg-royal-blue {
   background-color: hsl(var(--royal-blue));
+}
+
+.bg-vibrant-red {
+  background-color: hsl(var(--vibrant-red));
+}
+
+.bg-vibrant-red-light {
+  background-color: hsl(var(--vibrant-red-light));
 }
 
 .bg-warm-gold {
