@@ -12,7 +12,7 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden red-gradient text-white py-24 md:py-32 lg:py-40">
+      <section className="relative overflow-hidden red-gradient text-white pt-24 pb-24 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
           <div className="absolute top-0 -left-4 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
