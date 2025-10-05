@@ -175,6 +175,13 @@ export default function Footer() {
               </div>
             </div>
           </div>
+
+          {/* Simple Copyright Footer */}
+          <div className="text-center mt-6 pt-6 border-t border-white/20">
+            <p className="text-warm-gold text-xs">
+              © 2024 Exotic Paws Boutique. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
