@@ -129,7 +129,7 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             {/* Copyright */}
             <div className="text-cream/60 text-sm">
-              © 2024 Exotic Paws. All rights reserved.
+              © {new Date().getFullYear()} Exotic Paws. All rights reserved.
             </div>
 
             {/* Legal Links */}
