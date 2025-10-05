@@ -84,63 +84,93 @@ export default function MarketplacePage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
       <Header />
 
       {/* Hero Section */}
-      <section className="red-gradient text-cream py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">
-            DISCOVER YOUR<br />
-            <span className="text-warm-gold">EXOTIC COMPANION</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-cream/90">
-            Ethical Breeding. Verified Luxury.
-          </p>
-          <Button
-            size="lg"
-            className="bg-warm-gold text-vibrant-red hover:bg-warm-gold-light font-semibold px-8 py-4 text-lg"
-          >
-            VIEW LISTINGS
-          </Button>
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-24 md:py-32">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+              <span className="text-blue-200 text-sm font-medium">Premium Exotic Cats Marketplace</span>
+            </div>
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+              DISCOVER YOUR<br />
+              <span className="bg-gradient-to-r from-cyan-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">
+                EXOTIC COMPANION
+              </span>
+            </h1>
+            <p className="text-xl md:text-3xl mb-10 text-blue-100 font-light max-w-3xl mx-auto leading-relaxed">
+              Ethical Breeding. Verified Luxury. Lifelong Joy.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                size="lg"
+                className="bg-white text-blue-700 hover:bg-blue-50 font-bold px-10 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
+              >
+                VIEW LISTINGS
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-10 py-6 text-lg rounded-full transition-all duration-200"
+              >
+                LEARN MORE
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-16 md:h-24 fill-current text-blue-50" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+          </svg>
         </div>
       </section>
 
       {/* Search and Filter Bar */}
-      <section className="bg-white border-b border-gray-200 py-4">
+      <section className="bg-white shadow-sm border-b border-blue-100 py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             <div className="flex items-center space-x-4 flex-1">
               <div className="relative flex-1 max-w-md">
-                <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
                 <Input
                   type="text"
                   placeholder="Search by name, breed, or breeder..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 rounded-lg"
                 />
               </div>
               <Button
                 variant="outline"
                 onClick={() => setIsFilterOpen(true)}
-                className="md:hidden"
+                className="md:hidden border-blue-200 text-blue-700 hover:bg-blue-50"
               >
                 <Filter className="w-4 h-4 mr-2" />
                 Filters
               </Button>
             </div>
 
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-600">
+            <div className="flex items-center space-x-3">
+              <span className="text-sm font-medium text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
                 {filteredCats.length} cats found
               </span>
-              <div className="flex items-center border rounded-md">
+              <div className="flex items-center border border-blue-200 rounded-lg overflow-hidden">
                 <Button
                   size="sm"
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
                   onClick={() => setViewMode('grid')}
-                  className="rounded-r-none"
+                  className={`rounded-none ${viewMode === 'grid' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-blue-600 hover:bg-blue-50'}`}
                 >
                   <Grid className="w-4 h-4" />
                 </Button>
@@ -148,7 +178,7 @@ export default function MarketplacePage() {
                   size="sm"
                   variant={viewMode === 'list' ? 'default' : 'ghost'}
                   onClick={() => setViewMode('list')}
-                  className="rounded-l-none"
+                  className={`rounded-none ${viewMode === 'list' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-blue-600 hover:bg-blue-50'}`}
                 >
                   <List className="w-4 h-4" />
                 </Button>
@@ -234,13 +264,16 @@ export default function MarketplacePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-white py-16">
+      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-50 py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl font-bold text-vibrant-red mb-4">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-blue-100 rounded-full">
+              <span className="text-blue-700 text-sm font-semibold">CUSTOMER STORIES</span>
+            </div>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-blue-900 mb-6">
               TESTIMONIALS
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-blue-700 text-lg max-w-2xl mx-auto leading-relaxed">
               Hear from our satisfied customers who found their perfect exotic companions through our verified breeder network.
             </p>
           </div>
@@ -272,20 +305,20 @@ export default function MarketplacePage() {
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-blue-100">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-warm-gold rounded-full flex items-center justify-center text-vibrant-red font-bold">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="ml-3">
-                    <h4 className="font-semibold text-vibrant-red">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.location}</p>
+                    <h4 className="font-semibold text-blue-900 text-lg">{testimonial.name}</h4>
+                    <p className="text-sm text-blue-600">{testimonial.location}</p>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm mb-3 italic">"{testimonial.text}"</p>
+                <p className="text-gray-700 text-sm mb-4 italic leading-relaxed">"{testimonial.text}"</p>
                 <div className="flex items-center">
                   {Array.from({ length: testimonial.rating }, (_, i) => (
-                    <span key={i} className="text-yellow-400">★</span>
+                    <span key={i} className="text-yellow-400 text-lg">★</span>
                   ))}
                 </div>
               </div>
