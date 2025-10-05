@@ -5,7 +5,7 @@ import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from 'luci
 
 export default function Footer() {
   return (
-    <footer className="bg-forest-green text-cream">
+    <footer className="blue-gradient text-cream">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-warm-gold rounded-full flex items-center justify-center">
-                <span className="text-forest-green font-bold text-sm">EP</span>
+                <span className="text-royal-blue font-bold text-sm">EP</span>
               </div>
               <span className="font-heading text-xl font-bold">EXOTIC PAWS</span>
             </div>
@@ -157,19 +157,19 @@ export default function Footer() {
             <div className="flex justify-center space-x-4">
               <div className="flex items-center space-x-2">
                 <div className="w-6 h-6 rounded-full bg-warm-gold flex items-center justify-center">
-                  <span className="text-forest-green text-xs font-bold">✓</span>
+                  <span className="text-royal-blue text-xs font-bold">✓</span>
                 </div>
                 <span className="text-cream/80 text-sm">Verified Breeders</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-6 h-6 rounded-full bg-warm-gold flex items-center justify-center">
-                  <span className="text-forest-green text-xs font-bold">✓</span>
+                  <span className="text-royal-blue text-xs font-bold">✓</span>
                 </div>
                 <span className="text-cream/80 text-sm">Health Guarantee</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-6 h-6 rounded-full bg-warm-gold flex items-center justify-center">
-                  <span className="text-forest-green text-xs font-bold">✓</span>
+                  <span className="text-royal-blue text-xs font-bold">✓</span>
                 </div>
                 <span className="text-cream/80 text-sm">Premium Quality</span>
               </div>
