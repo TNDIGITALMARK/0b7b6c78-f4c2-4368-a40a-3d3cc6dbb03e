@@ -88,7 +88,7 @@ export default function MarketplacePage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="exotic-gradient text-cream py-20">
+      <section className="blue-gradient text-cream py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">
             DISCOVER YOUR<br />
@@ -99,7 +99,7 @@ export default function MarketplacePage() {
           </p>
           <Button
             size="lg"
-            className="bg-warm-gold text-forest-green hover:bg-warm-gold-light font-semibold px-8 py-4 text-lg"
+            className="bg-warm-gold text-royal-blue hover:bg-warm-gold-light font-semibold px-8 py-4 text-lg"
           >
             VIEW LISTINGS
           </Button>
@@ -237,7 +237,7 @@ export default function MarketplacePage() {
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl font-bold text-forest-green mb-4">
+            <h2 className="font-heading text-3xl font-bold text-royal-blue mb-4">
               TESTIMONIALS
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -274,11 +274,11 @@ export default function MarketplacePage() {
             ].map((testimonial, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-warm-gold rounded-full flex items-center justify-center text-forest-green font-bold">
+                  <div className="w-12 h-12 bg-warm-gold rounded-full flex items-center justify-center text-royal-blue font-bold">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="ml-3">
-                    <h4 className="font-semibold text-forest-green">{testimonial.name}</h4>
+                    <h4 className="font-semibold text-royal-blue">{testimonial.name}</h4>
                     <p className="text-sm text-gray-600">{testimonial.location}</p>
                   </div>
                 </div>

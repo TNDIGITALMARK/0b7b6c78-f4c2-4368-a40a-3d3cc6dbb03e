@@ -53,6 +53,11 @@ All colors MUST be HSL.
   --cream: 30 43% 95%;
   --cream-dark: 30 43% 90%;
 
+  /* Blue theme colors */
+  --royal-blue: 220 90% 35%;
+  --royal-blue-light: 220 90% 45%;
+  --royal-blue-dark: 220 90% 25%;
+
   --sidebar-background: 150 52% 19%; /* Deep forest green sidebar */
   --sidebar-foreground: 30 43% 95%; /* Cream text */
   --sidebar-primary: 43 100% 50%; /* Gold highlights */
@@ -197,6 +202,10 @@ body {
   background: linear-gradient(135deg, hsl(var(--forest-green)) 0%, hsl(var(--forest-green-light)) 100%);
 }
 
+.blue-gradient {
+  background: linear-gradient(135deg, hsl(var(--royal-blue)) 0%, hsl(var(--royal-blue-light)) 100%);
+}
+
 .gold-gradient {
   background: linear-gradient(135deg, hsl(var(--warm-gold)) 0%, hsl(var(--warm-gold-light)) 100%);
 }
@@ -205,12 +214,20 @@ body {
   color: hsl(var(--forest-green));
 }
 
+.text-royal-blue {
+  color: hsl(var(--royal-blue));
+}
+
 .text-warm-gold {
   color: hsl(var(--warm-gold));
 }
 
 .bg-forest-green {
   background-color: hsl(var(--forest-green));
+}
+
+.bg-royal-blue {
+  background-color: hsl(var(--royal-blue));
 }
 
 .bg-warm-gold {
