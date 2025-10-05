@@ -1,328 +1,352 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Search, Filter, Grid, List } from 'lucide-react';
+import { ArrowRight, Shield, Heart, Award, Star, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import CatCard from '@/components/CatCard';
-import FilterSidebar, { FilterOptions } from '@/components/FilterSidebar';
-import { mockCats } from '@/lib/mockData';
 
-export default function MarketplacePage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [favorites, setFavorites] = useState<Set<string>>(new Set());
-  const [filters, setFilters] = useState<FilterOptions>({
-    breeds: [],
-    priceRange: [0, 50000],
-    age: [],
-    gender: [],
-    location: [],
-    features: [],
-    availability: [],
-    sortBy: 'newest'
-  });
-
-  const handleFavoriteToggle = (catId: string) => {
-    setFavorites(prev => {
-      const newFavorites = new Set(prev);
-      if (newFavorites.has(catId)) {
-        newFavorites.delete(catId);
-      } else {
-        newFavorites.add(catId);
-      }
-      return newFavorites;
-    });
-  };
-
-  const filteredCats = mockCats.filter(cat => {
-    // Search filter
-    const matchesSearch = searchQuery === '' ||
-      cat.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cat.breed.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cat.breeder.name.toLowerCase().includes(searchQuery.toLowerCase());
-
-    // Breed filter
-    const matchesBreed = filters.breeds.length === 0 ||
-      filters.breeds.includes(cat.breed);
-
-    // Price filter
-    const catPrice = cat.price || (cat.priceRange?.min || 0);
-    const matchesPrice = catPrice >= filters.priceRange[0] && catPrice <= filters.priceRange[1];
-
-    // Availability filter
-    const matchesAvailability = filters.availability.length === 0 ||
-      filters.availability.includes(cat.availability);
-
-    // Gender filter
-    const matchesGender = filters.gender.length === 0 ||
-      filters.gender.includes(cat.gender);
-
-    // Features filter
-    const matchesFeatures = filters.features.length === 0 ||
-      filters.features.some(feature => cat.features.includes(feature));
-
-    return matchesSearch && matchesBreed && matchesPrice && matchesAvailability &&
-           matchesGender && matchesFeatures;
-  }).sort((a, b) => {
-    switch (filters.sortBy) {
-      case 'price-low':
-        return (a.price || 0) - (b.price || 0);
-      case 'price-high':
-        return (b.price || 0) - (a.price || 0);
-      case 'name-az':
-        return a.name.localeCompare(b.name);
-      case 'name-za':
-        return b.name.localeCompare(a.name);
-      default:
-        return 0;
-    }
-  });
-
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-24 md:py-32">
+      <section className="relative overflow-hidden red-gradient text-white py-24 md:py-32 lg:py-40">
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-          <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+          <div className="absolute top-0 -left-4 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-96 h-96 bg-red-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <span className="text-blue-200 text-sm font-medium">Premium Exotic Cats Marketplace</span>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20">
+              <Sparkles className="w-4 h-4 text-warm-gold" />
+              <span className="text-sm font-semibold text-white">Premium Exotic Cats Marketplace</span>
             </div>
+
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
               DISCOVER YOUR<br />
-              <span className="bg-gradient-to-r from-cyan-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-300 via-orange-200 to-pink-200 bg-clip-text text-transparent">
                 EXOTIC COMPANION
               </span>
             </h1>
-            <p className="text-xl md:text-3xl mb-10 text-blue-100 font-light max-w-3xl mx-auto leading-relaxed">
-              Ethical Breeding. Verified Luxury. Lifelong Joy.
+
+            <p className="text-xl md:text-2xl mb-10 text-white/90 font-light max-w-2xl mx-auto leading-relaxed">
+              Connect with verified luxury breeders and find your perfect exotic cat. Ethical breeding, premium quality, lifelong joy.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                size="lg"
-                className="bg-white text-blue-700 hover:bg-blue-50 font-bold px-10 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
-              >
-                VIEW LISTINGS
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-10 py-6 text-lg rounded-full transition-all duration-200"
-              >
-                LEARN MORE
-              </Button>
+              <Link href="/browse">
+                <Button
+                  size="lg"
+                  className="bg-white text-vibrant-red hover:bg-cream font-bold px-10 py-7 text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group"
+                >
+                  BROWSE EXOTIC CATS
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="/breeds">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-10 py-7 text-lg rounded-full transition-all duration-300"
+                >
+                  EXPLORE BREEDS
+                </Button>
+              </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="mt-16 flex flex-wrap justify-center gap-8 text-white/80">
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-warm-gold" />
+                <span className="text-sm font-medium">Verified Breeders</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-warm-gold" />
+                <span className="text-sm font-medium">Health Guarantee</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Heart className="w-5 h-5 text-warm-gold" />
+                <span className="text-sm font-medium">Ethical Breeding</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Decorative wave */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 md:h-24 fill-current text-blue-50" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="w-full h-16 md:h-24 fill-current text-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
           </svg>
         </div>
       </section>
 
-      {/* Search and Filter Bar */}
-      <section className="bg-white shadow-sm border-b border-blue-100 py-6">
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="flex items-center space-x-4 flex-1">
-              <div className="relative flex-1 max-w-md">
-                <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
-                <Input
-                  type="text"
-                  placeholder="Search by name, breed, or breeder..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 rounded-lg"
-                />
-              </div>
-              <Button
-                variant="outline"
-                onClick={() => setIsFilterOpen(true)}
-                className="md:hidden border-blue-200 text-blue-700 hover:bg-blue-50"
-              >
-                <Filter className="w-4 h-4 mr-2" />
-                Filters
-              </Button>
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-red-50 rounded-full">
+              <span className="text-vibrant-red text-sm font-bold">WHY EXOTIC PAWS</span>
             </div>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              The Premium Choice for<br />Exotic Cat Enthusiasts
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              We connect you with the world's most reputable exotic cat breeders, ensuring quality, health, and ethical practices every step of the way.
+            </p>
+          </div>
 
-            <div className="flex items-center space-x-3">
-              <span className="text-sm font-medium text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
-                {filteredCats.length} cats found
-              </span>
-              <div className="flex items-center border border-blue-200 rounded-lg overflow-hidden">
-                <Button
-                  size="sm"
-                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                  onClick={() => setViewMode('grid')}
-                  className={`rounded-none ${viewMode === 'grid' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-blue-600 hover:bg-blue-50'}`}
-                >
-                  <Grid className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={viewMode === 'list' ? 'default' : 'ghost'}
-                  onClick={() => setViewMode('list')}
-                  className={`rounded-none ${viewMode === 'list' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-blue-600 hover:bg-blue-50'}`}
-                >
-                  <List className="w-4 h-4" />
-                </Button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                icon: Shield,
+                title: 'Verified Breeders',
+                description: 'Every breeder in our network is thoroughly vetted and certified. We ensure they meet the highest standards of care and ethical breeding practices.',
+                color: 'red'
+              },
+              {
+                icon: Award,
+                title: 'Health Guarantee',
+                description: 'All cats come with comprehensive health certifications and genetic testing. Your peace of mind is our priority.',
+                color: 'orange'
+              },
+              {
+                icon: Heart,
+                title: 'Lifelong Support',
+                description: 'From selection to bringing your cat home and beyond, our team provides ongoing guidance and support for your exotic companion.',
+                color: 'pink'
+              }
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-red-100"
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${feature.color === 'red' ? 'from-red-500 to-red-600' : feature.color === 'orange' ? 'from-orange-500 to-orange-600' : 'from-pink-500 to-pink-600'} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                  <feature.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-8">
+      {/* Featured Breeds Section */}
+      <section className="py-20 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
         <div className="container mx-auto px-4">
-          <div className="flex gap-8">
-            {/* Sidebar Filters - Desktop */}
-            <div className="hidden lg:block w-80 flex-shrink-0">
-              <FilterSidebar
-                filters={filters}
-                onFiltersChange={setFilters}
-                isOpen={true}
-                onClose={() => {}}
-              />
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-white rounded-full shadow-sm">
+              <span className="text-vibrant-red text-sm font-bold">POPULAR BREEDS</span>
             </div>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Explore Exotic Breeds
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              From majestic Savannahs to striking Bengals, discover the perfect exotic cat breed for your lifestyle.
+            </p>
+          </div>
 
-            {/* Mobile Filter Sidebar */}
-            <FilterSidebar
-              filters={filters}
-              onFiltersChange={setFilters}
-              isOpen={isFilterOpen}
-              onClose={() => setIsFilterOpen(false)}
-            />
-
-            {/* Cat Listings */}
-            <div className="flex-1">
-              {filteredCats.length === 0 ? (
-                <div className="text-center py-12">
-                  <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Search className="w-12 h-12 text-gray-400" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {[
+              { name: 'Savannah', price: '$10,000 - $25,000', trait: 'Energetic & Loyal' },
+              { name: 'Bengal', price: '$2,000 - $10,000', trait: 'Playful & Athletic' },
+              { name: 'Maine Coon', price: '$1,500 - $4,000', trait: 'Gentle Giant' },
+              { name: 'Sphynx', price: '$3,000 - $6,000', trait: 'Affectionate & Unique' }
+            ].map((breed, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
+              >
+                <div className="h-48 bg-gradient-to-br from-red-400 to-orange-400 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-xs font-bold text-vibrant-red">{breed.trait}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No cats found</h3>
-                  <p className="text-gray-600 mb-4">
-                    Try adjusting your search criteria or filters
-                  </p>
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      setSearchQuery('');
-                      setFilters({
-                        breeds: [],
-                        priceRange: [0, 50000],
-                        age: [],
-                        gender: [],
-                        location: [],
-                        features: [],
-                        availability: [],
-                        sortBy: 'newest'
-                      });
-                    }}
-                  >
-                    Clear all filters
-                  </Button>
                 </div>
-              ) : (
-                <div
-                  className={
-                    viewMode === 'grid'
-                      ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'
-                      : 'space-y-4'
-                  }
-                >
-                  {filteredCats.map((cat) => (
-                    <CatCard
-                      key={cat.id}
-                      {...cat}
-                      isFavorite={favorites.has(cat.id)}
-                      onFavoriteToggle={handleFavoriteToggle}
-                    />
-                  ))}
+                <div className="p-6">
+                  <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">{breed.name}</h3>
+                  <p className="text-vibrant-red font-semibold mb-4">{breed.price}</p>
+                  <Link href="/breeds">
+                    <Button
+                      variant="outline"
+                      className="w-full border-red-300 text-vibrant-red hover:bg-red-50 group-hover:bg-vibrant-red group-hover:text-white transition-all"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
-              )}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/breeds">
+              <Button
+                size="lg"
+                className="red-gradient text-white font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+              >
+                VIEW ALL BREEDS
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-red-50 rounded-full">
+              <span className="text-vibrant-red text-sm font-bold">SIMPLE PROCESS</span>
+            </div>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              How It Works
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Finding your perfect exotic companion is easy with our streamlined process.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                { step: '01', title: 'Browse', description: 'Explore our collection of exotic cats from verified breeders' },
+                { step: '02', title: 'Connect', description: 'Reach out to breeders and ask questions about your chosen cat' },
+                { step: '03', title: 'Visit', description: 'Arrange a visit to meet your potential new companion' },
+                { step: '04', title: 'Adopt', description: 'Complete the adoption and bring your exotic cat home' }
+              ].map((step, index) => (
+                <div key={index} className="relative">
+                  <div className="text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 text-white rounded-full font-bold text-xl mb-4 shadow-lg">
+                      {step.step}
+                    </div>
+                    <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-gray-600 text-sm">{step.description}</p>
+                  </div>
+                  {index < 3 && (
+                    <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-red-300 to-orange-300"></div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-50 py-20">
+      <section className="py-20 bg-gradient-to-br from-red-50 via-orange-50 to-pink-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-4 py-2 bg-blue-100 rounded-full">
-              <span className="text-blue-700 text-sm font-semibold">CUSTOMER STORIES</span>
+            <div className="inline-block mb-4 px-4 py-2 bg-white rounded-full shadow-sm">
+              <span className="text-vibrant-red text-sm font-bold">TESTIMONIALS</span>
             </div>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-              TESTIMONIALS
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              What Our Customers Say
             </h2>
-            <p className="text-blue-700 text-lg max-w-2xl mx-auto leading-relaxed">
-              Hear from our satisfied customers who found their perfect exotic companions through our verified breeder network.
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Hear from happy owners who found their perfect exotic companions through Exotic Paws.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                name: 'Sarah M.',
+                name: 'Sarah Mitchell',
                 location: 'California',
-                text: 'Found my perfect Bengal through Exotic Paws. The breeder was amazing and the whole process was seamless.',
+                text: 'Found my perfect Bengal through Exotic Paws. The breeder was amazing and the whole process was seamless. Could not be happier!',
                 rating: 5
               },
               {
-                name: 'Michael R.',
+                name: 'Michael Rodriguez',
                 location: 'Texas',
-                text: 'My Savannah cat is absolutely incredible. The health guarantee gave me peace of mind.',
+                text: 'My Savannah cat is absolutely incredible. The health guarantee and ongoing support gave me complete peace of mind throughout the process.',
                 rating: 5
               },
               {
-                name: 'Jennifer K.',
-                location: 'Florida',
-                text: 'The Maine Coon I adopted is gentle giant perfection. Couldn\'t be happier with my choice.',
-                rating: 5
-              },
-              {
-                name: 'David L.',
+                name: 'Jennifer Kim',
                 location: 'New York',
-                text: 'Excellent service and support. The verification process ensures you get quality cats from reputable breeders.',
+                text: 'The verification process ensures you get quality cats from reputable breeders. Best decision I ever made was using Exotic Paws.',
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-blue-100">
-                <div className="flex items-center mb-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="flex items-center mb-2">
+                  {Array.from({ length: testimonial.rating }, (_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-6 italic leading-relaxed">"{testimonial.text}"</p>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold shadow-md">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="ml-3">
-                    <h4 className="font-semibold text-blue-900 text-lg">{testimonial.name}</h4>
-                    <p className="text-sm text-blue-600">{testimonial.location}</p>
+                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">{testimonial.location}</p>
                   </div>
-                </div>
-                <p className="text-gray-700 text-sm mb-4 italic leading-relaxed">"{testimonial.text}"</p>
-                <div className="flex items-center">
-                  {Array.from({ length: testimonial.rating }, (_, i) => (
-                    <span key={i} className="text-yellow-400 text-lg">★</span>
-                  ))}
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="red-gradient rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl max-w-4xl mx-auto">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
+              Ready to Find Your<br />Perfect Companion?
+            </h2>
+            <p className="text-xl mb-10 text-white/90 max-w-2xl mx-auto">
+              Join thousands of satisfied exotic cat owners who found their perfect match through our verified breeder network.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/browse">
+                <Button
+                  size="lg"
+                  className="bg-white text-vibrant-red hover:bg-cream font-bold px-10 py-7 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all group"
+                >
+                  START BROWSING
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-10 py-7 text-lg rounded-full"
+                >
+                  CONTACT US
+                </Button>
+              </Link>
+            </div>
+
+            {/* Trust badges */}
+            <div className="mt-12 pt-8 border-t border-white/20 flex flex-wrap justify-center gap-8 text-white/80">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5" />
+                <span className="text-sm">100+ Verified Breeders</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5" />
+                <span className="text-sm">1000+ Happy Families</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5" />
+                <span className="text-sm">24/7 Support</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
