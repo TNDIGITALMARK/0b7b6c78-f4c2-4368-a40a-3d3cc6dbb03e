@@ -5,20 +5,17 @@ import { ArrowRight, Shield, Heart, Award, Star, Sparkles, CheckCircle2 } from '
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import HeroSlideshow from '@/components/HeroSlideshow';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-sky-50">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden red-gradient text-white pt-24 pb-32 md:pt-32 md:pb-40 lg:pt-40 lg:pb-48">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          <div className="absolute top-0 -left-4 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute top-0 -right-4 w-96 h-96 bg-red-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-        </div>
+      {/* Hero Section with Slideshow */}
+      <section className="relative overflow-hidden text-white pt-24 pb-32 md:pt-32 md:pb-40 lg:pt-40 lg:pb-48 h-screen max-h-[900px]">
+        {/* Background Slideshow */}
+        <HeroSlideshow />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
@@ -27,14 +24,14 @@ export default function HomePage() {
               <span className="text-sm font-semibold text-white tracking-wide">Premium Exotic Cats Marketplace</span>
             </div>
 
-            <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-[1.1] tracking-tight">
+            <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
               DISCOVER YOUR<br />
-              <span className="bg-gradient-to-r from-yellow-200 via-orange-200 to-pink-200 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-cyan-200 via-blue-200 to-sky-300 bg-clip-text text-transparent">
                 EXOTIC COMPANION
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-white/95 font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-white/95 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Connect with verified luxury breeders and find your perfect exotic cat. Ethical breeding, premium quality, lifelong joy.
             </p>
 
@@ -42,7 +39,7 @@ export default function HomePage() {
               <Link href="/browse">
                 <Button
                   size="lg"
-                  className="bg-white text-vibrant-red hover:bg-cream font-bold px-12 py-8 text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group"
+                  className="bg-white text-royal-blue hover:bg-sky-50 font-bold px-12 py-8 text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group"
                 >
                   BROWSE EXOTIC CATS
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
@@ -62,15 +59,15 @@ export default function HomePage() {
             {/* Trust Indicators */}
             <div className="mt-20 flex flex-wrap justify-center gap-10 text-white/90">
               <div className="flex items-center gap-3 group">
-                <Shield className="w-6 h-6 text-yellow-300 group-hover:scale-110 transition-transform" />
+                <Shield className="w-6 h-6 text-cyan-300 group-hover:scale-110 transition-transform" />
                 <span className="text-base font-medium">Verified Breeders</span>
               </div>
               <div className="flex items-center gap-3 group">
-                <Award className="w-6 h-6 text-yellow-300 group-hover:scale-110 transition-transform" />
+                <Award className="w-6 h-6 text-cyan-300 group-hover:scale-110 transition-transform" />
                 <span className="text-base font-medium">Health Guarantee</span>
               </div>
               <div className="flex items-center gap-3 group">
-                <Heart className="w-6 h-6 text-yellow-300 group-hover:scale-110 transition-transform" />
+                <Heart className="w-6 h-6 text-cyan-300 group-hover:scale-110 transition-transform" />
                 <span className="text-base font-medium">Ethical Breeding</span>
               </div>
             </div>
@@ -89,8 +86,8 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <div className="inline-block mb-6 px-5 py-2.5 bg-red-50 rounded-full shadow-sm">
-              <span className="text-vibrant-red text-sm font-bold tracking-wide">WHY EXOTIC PAWS</span>
+            <div className="inline-block mb-6 px-5 py-2.5 bg-blue-50 rounded-full shadow-sm">
+              <span className="text-royal-blue text-sm font-bold tracking-wide">WHY EXOTIC PAWS</span>
             </div>
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               The Premium Choice for<br />Exotic Cat Enthusiasts
@@ -123,9 +120,9 @@ export default function HomePage() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-red-100 group"
+                className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-blue-100 group"
               >
-                <div className={`w-20 h-20 bg-gradient-to-br ${feature.color === 'red' ? 'from-red-500 to-red-600' : feature.color === 'orange' ? 'from-orange-500 to-orange-600' : 'from-pink-500 to-pink-600'} rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-20 h-20 bg-gradient-to-br ${feature.color === 'red' ? 'from-blue-500 to-blue-600' : feature.color === 'orange' ? 'from-sky-500 to-sky-600' : 'from-cyan-500 to-cyan-600'} rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   <feature.icon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-4">{feature.title}</h3>
@@ -137,11 +134,11 @@ export default function HomePage() {
       </section>
 
       {/* Featured Breeds Section */}
-      <section className="py-24 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
+      <section className="py-24 bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <div className="inline-block mb-6 px-5 py-2.5 bg-white rounded-full shadow-sm">
-              <span className="text-vibrant-red text-sm font-bold tracking-wide">POPULAR BREEDS</span>
+              <span className="text-royal-blue text-sm font-bold tracking-wide">POPULAR BREEDS</span>
             </div>
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Explore Exotic Breeds
@@ -170,16 +167,16 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 transition-colors duration-300"></div>
                   <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-                    <span className="text-xs font-bold text-vibrant-red">{breed.trait}</span>
+                    <span className="text-xs font-bold text-royal-blue">{breed.trait}</span>
                   </div>
                 </div>
                 <div className="p-6">
                   <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">{breed.name}</h3>
-                  <p className="text-vibrant-red font-semibold mb-4 text-lg">{breed.price}</p>
+                  <p className="text-royal-blue font-semibold mb-4 text-lg">{breed.price}</p>
                   <Link href="/breeds">
                     <Button
                       variant="outline"
-                      className="w-full border-red-300 text-vibrant-red hover:bg-red-50 group-hover:bg-vibrant-red group-hover:text-white group-hover:border-vibrant-red transition-all duration-300"
+                      className="w-full border-blue-300 text-royal-blue hover:bg-blue-50 group-hover:bg-royal-blue group-hover:text-white group-hover:border-royal-blue transition-all duration-300"
                     >
                       Learn More
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -194,7 +191,7 @@ export default function HomePage() {
             <Link href="/breeds">
               <Button
                 size="lg"
-                className="red-gradient text-white font-bold px-10 py-7 text-lg rounded-full shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+                className="blue-gradient text-white font-bold px-10 py-7 text-lg rounded-full shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
               >
                 VIEW ALL BREEDS
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -208,8 +205,8 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <div className="inline-block mb-6 px-5 py-2.5 bg-red-50 rounded-full shadow-sm">
-              <span className="text-vibrant-red text-sm font-bold tracking-wide">SIMPLE PROCESS</span>
+            <div className="inline-block mb-6 px-5 py-2.5 bg-blue-50 rounded-full shadow-sm">
+              <span className="text-royal-blue text-sm font-bold tracking-wide">SIMPLE PROCESS</span>
             </div>
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               How It Works
@@ -229,14 +226,14 @@ export default function HomePage() {
               ].map((step, index) => (
                 <div key={index} className="relative group">
                   <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-500 to-orange-500 text-white rounded-full font-bold text-2xl mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-sky-500 text-white rounded-full font-bold text-2xl mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
                       {step.step}
                     </div>
                     <h3 className="font-heading text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
                     <p className="text-gray-600 text-base leading-relaxed">{step.description}</p>
                   </div>
                   {index < 3 && (
-                    <div className="hidden md:block absolute top-10 -right-5 w-10 h-1 bg-gradient-to-r from-red-300 to-orange-300 rounded-full"></div>
+                    <div className="hidden md:block absolute top-10 -right-5 w-10 h-1 bg-gradient-to-r from-blue-300 to-sky-300 rounded-full"></div>
                   )}
                 </div>
               ))}
@@ -246,11 +243,11 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-gradient-to-br from-red-50 via-orange-50 to-pink-50">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <div className="inline-block mb-6 px-5 py-2.5 bg-white rounded-full shadow-sm">
-              <span className="text-vibrant-red text-sm font-bold tracking-wide">TESTIMONIALS</span>
+              <span className="text-royal-blue text-sm font-bold tracking-wide">TESTIMONIALS</span>
             </div>
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               What Our Customers Say
@@ -292,7 +289,7 @@ export default function HomePage() {
                 </div>
                 <p className="text-gray-700 text-base mb-8 italic leading-relaxed">"{testimonial.text}"</p>
                 <div className="flex items-center">
-                  <div className="w-14 h-14 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-sky-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-110 transition-transform">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="ml-4">
@@ -309,7 +306,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="red-gradient rounded-3xl p-16 md:p-20 text-center text-white shadow-2xl max-w-5xl mx-auto relative overflow-hidden">
+          <div className="blue-gradient rounded-3xl p-16 md:p-20 text-center text-white shadow-2xl max-w-5xl mx-auto relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden opacity-10">
               <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -327,7 +324,7 @@ export default function HomePage() {
                 <Link href="/browse">
                   <Button
                     size="lg"
-                    className="bg-white text-vibrant-red hover:bg-cream font-bold px-12 py-8 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+                    className="bg-white text-royal-blue hover:bg-sky-50 font-bold px-12 py-8 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
                   >
                     START BROWSING
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />

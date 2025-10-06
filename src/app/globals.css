@@ -13,33 +13,33 @@ All colors MUST be HSL.
   /* Warm Gold #FFB700 -> HSL(43, 100%, 50%) */
   /* Cream #F8F5F0 -> HSL(30, 43%, 95%) */
 
-  --background: 30 43% 95%; /* Cream background */
-  --foreground: 150 52% 15%; /* Dark forest green for text */
+  --background: 210 40% 98%; /* Light blue-grey background */
+  --foreground: 220 90% 15%; /* Dark blue for text */
 
   --card: 0 0% 100%; /* White cards */
-  --card-foreground: 150 52% 15%;
+  --card-foreground: 220 90% 15%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 150 52% 15%;
+  --popover-foreground: 220 90% 15%;
 
-  --primary: 150 52% 19%; /* Deep forest green */
-  --primary-foreground: 30 43% 95%; /* Cream text on primary */
+  --primary: 220 90% 45%; /* Royal blue */
+  --primary-foreground: 210 40% 98%; /* Light text on primary */
 
-  --secondary: 43 100% 50%; /* Warm gold */
-  --secondary-foreground: 150 52% 15%; /* Dark green text on gold */
+  --secondary: 200 100% 50%; /* Bright cyan blue */
+  --secondary-foreground: 220 90% 15%; /* Dark blue text */
 
-  --muted: 150 20% 85%; /* Light green-grey */
-  --muted-foreground: 150 30% 35%; /* Medium green-grey */
+  --muted: 210 30% 85%; /* Light blue-grey */
+  --muted-foreground: 220 30% 35%; /* Medium blue-grey */
 
-  --accent: 43 100% 50%; /* Warm gold accent */
-  --accent-foreground: 150 52% 15%; /* Dark green text */
+  --accent: 220 90% 45%; /* Royal blue accent */
+  --accent-foreground: 210 40% 98%; /* Light text */
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 150 20% 80%; /* Light green-grey borders */
-  --input: 150 20% 85%; /* Light input backgrounds */
-  --ring: 43 100% 50%; /* Gold focus rings */
+  --border: 210 30% 80%; /* Light blue-grey borders */
+  --input: 210 30% 85%; /* Light input backgrounds */
+  --ring: 220 90% 45%; /* Blue focus rings */
 
   --radius: 0.5rem;
 
@@ -53,64 +53,67 @@ All colors MUST be HSL.
   --cream: 30 43% 95%;
   --cream-dark: 30 43% 90%;
 
-  /* Blue theme colors */
-  --royal-blue: 220 90% 35%;
-  --royal-blue-light: 220 90% 45%;
-  --royal-blue-dark: 220 90% 25%;
+  /* Blue theme colors - PRIMARY */
+  --royal-blue: 220 90% 45%;
+  --royal-blue-light: 220 90% 55%;
+  --royal-blue-dark: 220 90% 35%;
+  --sky-blue: 200 100% 50%;
+  --sky-blue-light: 200 100% 60%;
+  --navy-blue: 220 90% 25%;
 
   /* Red theme colors */
   --vibrant-red: 0 85% 45%;
   --vibrant-red-light: 0 85% 55%;
   --vibrant-red-dark: 0 85% 35%;
 
-  --sidebar-background: 150 52% 19%; /* Deep forest green sidebar */
-  --sidebar-foreground: 30 43% 95%; /* Cream text */
-  --sidebar-primary: 43 100% 50%; /* Gold highlights */
-  --sidebar-primary-foreground: 150 52% 15%;
-  --sidebar-accent: 150 52% 25%; /* Lighter forest green */
-  --sidebar-accent-foreground: 30 43% 95%;
-  --sidebar-border: 150 52% 25%;
-  --sidebar-ring: 43 100% 50%;
+  --sidebar-background: 220 90% 35%; /* Royal blue sidebar */
+  --sidebar-foreground: 210 40% 98%; /* Light text */
+  --sidebar-primary: 200 100% 50%; /* Sky blue highlights */
+  --sidebar-primary-foreground: 220 90% 15%;
+  --sidebar-accent: 220 90% 45%; /* Lighter blue */
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-border: 220 90% 45%;
+  --sidebar-ring: 200 100% 50%;
 }
 
 .dark {
   /* Dark theme for Exotic Cats Marketplace */
-  --background: 150 52% 12%; /* Very dark forest green */
-  --foreground: 30 43% 95%; /* Cream text */
+  --background: 220 90% 12%; /* Very dark blue */
+  --foreground: 210 40% 98%; /* Light text */
 
-  --card: 150 52% 15%; /* Dark forest green cards */
-  --card-foreground: 30 43% 95%;
+  --card: 220 90% 15%; /* Dark blue cards */
+  --card-foreground: 210 40% 98%;
 
-  --popover: 150 52% 15%;
-  --popover-foreground: 30 43% 95%;
+  --popover: 220 90% 15%;
+  --popover-foreground: 210 40% 98%;
 
-  --primary: 43 100% 50%; /* Warm gold primary */
-  --primary-foreground: 150 52% 15%; /* Dark green text */
+  --primary: 220 90% 55%; /* Bright blue primary */
+  --primary-foreground: 220 90% 15%; /* Dark blue text */
 
-  --secondary: 150 52% 25%; /* Lighter forest green */
-  --secondary-foreground: 30 43% 95%;
+  --secondary: 200 100% 50%; /* Sky blue */
+  --secondary-foreground: 210 40% 98%;
 
-  --muted: 150 30% 20%; /* Dark muted green */
-  --muted-foreground: 150 20% 70%; /* Light green-grey */
+  --muted: 220 30% 20%; /* Dark muted blue */
+  --muted-foreground: 210 20% 70%; /* Light blue-grey */
 
-  --accent: 43 100% 50%; /* Warm gold accent */
-  --accent-foreground: 150 52% 15%;
+  --accent: 200 100% 50%; /* Sky blue accent */
+  --accent-foreground: 220 90% 15%;
 
   --destructive: 0 62.8% 50%;
-  --destructive-foreground: 30 43% 95%;
+  --destructive-foreground: 210 40% 98%;
 
-  --border: 150 30% 25%; /* Dark green borders */
-  --input: 150 30% 20%; /* Dark input backgrounds */
-  --ring: 43 100% 50%; /* Gold focus rings */
+  --border: 220 30% 25%; /* Dark blue borders */
+  --input: 220 30% 20%; /* Dark input backgrounds */
+  --ring: 200 100% 50%; /* Sky blue focus rings */
 
-  --sidebar-background: 150 52% 8%; /* Very dark forest green sidebar */
-  --sidebar-foreground: 30 43% 95%; /* Cream text */
-  --sidebar-primary: 43 100% 50%; /* Gold highlights */
-  --sidebar-primary-foreground: 150 52% 15%;
-  --sidebar-accent: 150 52% 18%; /* Slightly lighter forest green */
-  --sidebar-accent-foreground: 30 43% 95%;
-  --sidebar-border: 150 52% 18%;
-  --sidebar-ring: 43 100% 50%;
+  --sidebar-background: 220 90% 8%; /* Very dark blue sidebar */
+  --sidebar-foreground: 210 40% 98%; /* Light text */
+  --sidebar-primary: 200 100% 50%; /* Sky blue highlights */
+  --sidebar-primary-foreground: 220 90% 15%;
+  --sidebar-accent: 220 90% 18%; /* Slightly lighter blue */
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-border: 220 90% 18%;
+  --sidebar-ring: 200 100% 50%;
 }
 
 @theme {
@@ -244,6 +247,27 @@ body {
 
 .gold-gradient {
   background: linear-gradient(135deg, hsl(var(--warm-gold)) 0%, hsl(var(--warm-gold-light)) 100%);
+}
+
+/* Blue variations */
+.bg-royal-blue-light {
+  background-color: hsl(var(--royal-blue-light));
+}
+
+.bg-royal-blue-dark {
+  background-color: hsl(var(--royal-blue-dark));
+}
+
+.bg-sky-blue {
+  background-color: hsl(var(--sky-blue));
+}
+
+.border-royal-blue {
+  border-color: hsl(var(--royal-blue));
+}
+
+.text-sky-blue {
+  color: hsl(var(--sky-blue));
 }
 
 .text-forest-green {
