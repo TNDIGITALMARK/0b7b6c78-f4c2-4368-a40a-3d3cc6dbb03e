@@ -25,9 +25,9 @@ export default function HomePage() {
             </div>
 
             <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-              FIND YOUR PERFECT<br />
+              DISCOVER YOUR DREAM<br />
               <span className="bg-gradient-to-r from-cyan-200 via-blue-200 to-sky-300 bg-clip-text text-transparent">
-                LUXURY FELINE
+                EXOTIC COMPANION
               </span>
             </h1>
 
