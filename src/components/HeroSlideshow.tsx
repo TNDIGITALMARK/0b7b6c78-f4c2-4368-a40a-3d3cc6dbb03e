@@ -20,6 +20,22 @@ const slides: Slide[] = [
   {
     image: '/generated/hero-slide-3.png',
     alt: 'Premium Maine Coon in Blue Luxury Setting'
+  },
+  {
+    image: '/generated/hero-slide-4.png',
+    alt: 'Luxury Bengal Cat in Modern Elegant Interior'
+  },
+  {
+    image: '/generated/hero-slide-5.png',
+    alt: 'Majestic Savannah Cat in Luxury Penthouse'
+  },
+  {
+    image: '/generated/hero-slide-6.png',
+    alt: 'Stunning Sphynx Cat in Minimalist Setting'
+  },
+  {
+    image: '/generated/hero-slide-7.png',
+    alt: 'Gorgeous Maine Coon in Luxury Library'
   }
 ];
 
